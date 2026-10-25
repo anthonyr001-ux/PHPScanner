@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHP Web Server Inventory</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+         Helvetica, Arial, sans-serif; margin: 0; background:#f6f7f9;
+         color:#111827; line-height:1.45; }
+  @media (prefers-color-scheme: dark) {
+    body { background:#0f1115; color:#e5e7eb; }
+    .card, table { background:#171a21 !important; }
+    th { background:#1f2430 !important; }
+    td, th { border-color:#2a2f3a !important; }
+    .muted { color:#9aa3b2 !important; }
+  }
+  header { background:#111827; color:#fff; padding:24px 28px; }
+  header h1 { margin:0 0 4px; font-size:20px; }
+  header .muted { color:#9ca3af; font-size:13px; }
+  main { max-width:1100px; margin:0 auto; padding:24px 20px 60px; }
+  .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+           gap:12px; margin:20px 0 28px; }
+  .card { background:#fff; border-radius:10px; padding:16px 18px;
+          box-shadow:0 1px 2px rgba(0,0,0,.06); }
+  .card .n { font-size:26px; font-weight:700; }
+  .card .l { font-size:12px; text-transform:uppercase; letter-spacing:.04em;
+             color:#6b7280; margin-top:2px; }
+  .card.eol .n { color:#b91c1c; }
+  .card.sec .n { color:#b45309; }
+  .card.ok .n { color:#15803d; }
+  h2 { font-size:15px; text-transform:uppercase; letter-spacing:.05em;
+       color:#6b7280; margin:28px 0 10px; }
+  table { width:100%; border-collapse:collapse; background:#fff;
+          border-radius:10px; overflow:hidden; box-shadow:0 1px 2px rgba(0,0,0,.06); }
+  th, td { text-align:left; padding:9px 12px; border-bottom:1px solid #eceef1;
+           font-size:13px; vertical-align:top; }
+  th { background:#f3f4f6; font-size:11px; text-transform:uppercase;
+       letter-spacing:.04em; color:#6b7280; }
+  tr.row-eol td { background:rgba(185,28,28,.06); }
+  .badge { display:inline-block; padding:2px 8px; border-radius:999px;
+           font-size:11px; font-weight:700; white-space:nowrap; }
+  .tls { font-size:9px; background:#2563eb; color:#fff; padding:1px 4px;
+         border-radius:4px; vertical-align:middle; }
+  .detail, .sig { color:#4b5563; font-size:12px; }
+  .server { font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size:11.5px; }
+  .hn { font-family:ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size:11px; color:#6b7280; margin-top:2px; }
+  .kevchip { display:inline-block; padding:1px 6px; border-radius:4px;
+             font-size:10.5px; font-weight:600; margin:1px 1px;
+             font-family:ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .card.kev .n { color:#b91c1c; }
+  .muted { color:#6b7280; }
+  .note { font-size:12px; color:#6b7280; margin-top:8px; }
+  footer { max-width:1100px; margin:0 auto; padding:0 20px 40px;
+           font-size:12px; color:#6b7280; }
+</style>
+</head>
+<body>
+<header>
+  <h1>PHP Web Server Inventory</h1>
+  <div class="muted">Generated 2026-10-25 11:26:19 &middot;
+    7 target host(s) &middot;
+    7 port(s) &middot; scan took 0.0s &middot; CISA KEV 2026.10.20</div>
+</header>
+<main>
+  <div class="cards">
+    <div class="card"><div class="n">7</div><div class="l">Web servers</div></div>
+    <div class="card"><div class="n">6</div><div class="l">Running PHP</div></div>
+    <div class="card eol"><div class="n">2</div><div class="l">End of life</div></div>
+    <div class="card sec"><div class="n">2</div><div class="l">Security-only</div></div>
+    <div class="card ok"><div class="n">1</div><div class="l">Supported</div></div>
+    <div class="card"><div class="n">1</div><div class="l">Version unknown</div></div>
+    <div class="card kev"><div class="n">3</div><div class="l">KEV likely affected</div></div>
+    <div class="card"><div class="n">4</div><div class="l">KEV CVEs matched</div></div>
+    <div class="card kev"><div class="n">2</div><div class="l">Ransomware-linked</div></div>
+  </div>
+
+  <h2>PHP servers (6)</h2>
+  <table><thead><tr><th>Host</th><th>Port</th><th>PHP version</th><th>Support status</th><th>Lifecycle</th><th>Server</th><th>KEV</th><th>Evidence</th></tr></thead><tbody><tr class="row-eol">
+  <td><a href="http://127.0.0.3:8083/" target="_blank" rel="noopener">127.0.0.3</a></td>
+  <td>8083</td>
+  <td>7.4.3</td>
+  <td><span class="badge" style="background:#b91c1c;color:#fff;">END OF LIFE</span></td>
+  <td class="detail">End of life since 2022-11-28 (no security fixes)</td>
+  <td class="server">BaseHTTP/0.6 Python/3.13.17, Apache/2.4.29 (Ubuntu)</td>
+  <td><span class="kevchip" style="background:#b91c1c;color:#fff;" title="affected">CVE-2024-4577</span> <span class="kevchip" style="background:#b45309;color:#fff;" title="unknown">CVE-2019-11043</span> <span class="kevchip" style="background:#4b5563;color:#fff;" title="patched">CVE-2012-1823</span> <span class="kevchip" style="background:#4b5563;color:#fff;" title="patched">CVE-2021-41773</span></td>
+  <td class="sig">X-Powered-By: PHP/7.4.3</td>
+</tr><tr class="row-eol">
+  <td><a href="https://127.0.0.6:8443/" target="_blank" rel="noopener">127.0.0.6</a></td>
+  <td>8443 <span class="tls">TLS</span></td>
+  <td>8.1.2</td>
+  <td><span class="badge" style="background:#b91c1c;color:#fff;">END OF LIFE</span></td>
+  <td class="detail">End of life since 2025-12-31 (no security fixes)</td>
+  <td class="server">BaseHTTP/0.6 Python/3.13.17, Apache/2.4.52</td>
+  <td><span class="kevchip" style="background:#b91c1c;color:#fff;" title="affected">CVE-2024-4577</span> <span class="kevchip" style="background:#b45309;color:#fff;" title="unknown">CVE-2019-11043</span> <span class="kevchip" style="background:#4b5563;color:#fff;" title="patched">CVE-2012-1823</span> <span class="kevchip" style="background:#4b5563;color:#fff;" title="patched">CVE-2021-41773</span></td>
+  <td class="sig">X-Powered-By: PHP/8.1.2</td>
+</tr><tr class="row-security_only">
+  <td><a href="http://127.0.0.2:8082/" target="_blank" rel="noopener">127.0.0.2</a></td>
+  <td>8082</td>
+  <td>8.3.10</td>
+  <td><span class="badge" style="background:#b45309;color:#fff;">Security-only</span></td>
+  <td class="detail">Security-only until 2027-12-31; active support ended 2025-12-31</td>
+  <td class="server">BaseHTTP/0.6 Python/3.13.17, nginx/1.24.0</td>
+  <td><span class="kevchip" style="background:#b45309;color:#fff;" title="unknown">CVE-2019-11043</span> <span class="kevchip" style="background:#4b5563;color:#fff;" title="patched">CVE-2012-1823</span> <span class="kevchip" style="background:#4b5563;color:#fff;" title="patched">CVE-2024-4577</span></td>
+  <td class="sig">X-Powered-By: PHP/8.3.10</td>
+</tr><tr class="row-security_only">
+  <td><a href="http://127.0.0.7:8087/" target="_blank" rel="noopener">127.0.0.7</a></td>
+  <td>8087</td>
+  <td>8.2.5</td>
+  <td><span class="badge" style="background:#b45309;color:#fff;">Security-only</span></td>
+  <td class="detail">Security-only until 2026-12-31; active support ended 2024-12-31</td>
+  <td class="server">BaseHTTP/0.6 Python/3.13.17, Apache</td>
+  <td><span class="kevchip" style="background:#b91c1c;color:#fff;" title="affected">CVE-2024-4577</span> <span class="kevchip" style="background:#b45309;color:#fff;" title="unknown">CVE-2019-11043</span> <span class="kevchip" style="background:#b45309;color:#fff;" title="unknown">CVE-2021-41773</span> <span class="kevchip" style="background:#4b5563;color:#fff;" title="patched">CVE-2012-1823</span></td>
+  <td class="sig">Body: phpinfo() output</td>
+</tr><tr class="row-unknown">
+  <td><a href="http://127.0.0.4:8084/login.php" target="_blank" rel="noopener">127.0.0.4</a></td>
+  <td>8084</td>
+  <td>—</td>
+  <td><span class="badge" style="background:#4b5563;color:#fff;">Version unknown</span></td>
+  <td class="detail">PHP detected but version not disclosed</td>
+  <td class="server">BaseHTTP/0.6 Python/3.13.17, nginx</td>
+  <td><span class="kevchip" style="background:#b45309;color:#fff;" title="unknown">CVE-2012-1823</span> <span class="kevchip" style="background:#b45309;color:#fff;" title="unknown">CVE-2019-11043</span> <span class="kevchip" style="background:#b45309;color:#fff;" title="unknown">CVE-2024-4577</span></td>
+  <td class="sig">Set-Cookie: PHPSESSID</td>
+</tr><tr class="row-active">
+  <td><a href="http://127.0.0.1:8081/" target="_blank" rel="noopener">127.0.0.1</a><div class="hn">localhost</div></td>
+  <td>8081</td>
+  <td>8.4.3</td>
+  <td><span class="badge" style="background:#15803d;color:#fff;">Supported</span></td>
+  <td class="detail">Actively supported until 2026-12-31</td>
+  <td class="server">BaseHTTP/0.6 Python/3.13.17, Apache/2.4.58</td>
+  <td><span class="kevchip" style="background:#b45309;color:#fff;" title="unknown">CVE-2019-11043</span> <span class="kevchip" style="background:#4b5563;color:#fff;" title="patched">CVE-2012-1823</span> <span class="kevchip" style="background:#4b5563;color:#fff;" title="patched">CVE-2021-41773</span> <span class="kevchip" style="background:#4b5563;color:#fff;" title="patched">CVE-2024-4577</span></td>
+  <td class="sig">X-Powered-By: PHP/8.4.3</td>
+</tr></tbody></table>
+
+  <h2>Other web servers (1)</h2>
+  <table><thead><tr><th>Host</th><th>Port</th><th>HTTP status</th><th>Server</th><th>KEV</th></tr></thead><tbody><tr>
+  <td><a href="http://127.0.0.5:8085/login.php" target="_blank" rel="noopener">127.0.0.5</a></td>
+  <td>8085</td>
+  <td>200</td>
+  <td class="server">BaseHTTP/0.6 Python/3.13.17, nginx/1.25.0</td>
+  <td><span class="muted">—</span></td>
+</tr></tbody></table>
+
+  <h2>Known exploited vulnerabilities (CISA KEV)</h2>
+  <table><thead><tr><th>Host</th><th>Port</th><th>CVE</th><th>Vulnerability</th><th>Matched on</th><th>Verdict</th><th>Ransomware</th><th>Added</th></tr></thead><tbody><tr>
+  <td><a href="http://127.0.0.3:8083/" target="_blank" rel="noopener">127.0.0.3</a></td>
+  <td>8083</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-4577" target="_blank" rel="noopener">CVE-2024-4577</a></td>
+  <td>PHP-CGI OS Command Injection Vulnerability</td>
+  <td class="server">PHP 7.4.3</td>
+  <td><span class="badge" style="background:#b91c1c;color:#fff;">Likely affected</span></td>
+  <td>Yes</td>
+  <td class="detail">2024-06-12</td>
+</tr><tr>
+  <td><a href="https://127.0.0.6:8443/" target="_blank" rel="noopener">127.0.0.6</a></td>
+  <td>8443</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-4577" target="_blank" rel="noopener">CVE-2024-4577</a></td>
+  <td>PHP-CGI OS Command Injection Vulnerability</td>
+  <td class="server">PHP 8.1.2</td>
+  <td><span class="badge" style="background:#b91c1c;color:#fff;">Likely affected</span></td>
+  <td>Yes</td>
+  <td class="detail">2024-06-12</td>
+</tr><tr>
+  <td><a href="http://127.0.0.7:8087/" target="_blank" rel="noopener">127.0.0.7</a></td>
+  <td>8087</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-4577" target="_blank" rel="noopener">CVE-2024-4577</a></td>
+  <td>PHP-CGI OS Command Injection Vulnerability</td>
+  <td class="server">PHP 8.2.5</td>
+  <td><span class="badge" style="background:#b91c1c;color:#fff;">Likely affected</span></td>
+  <td>Yes</td>
+  <td class="detail">2024-06-12</td>
+</tr><tr>
+  <td><a href="http://127.0.0.1:8081/" target="_blank" rel="noopener">127.0.0.1</a><div class="hn">localhost</div></td>
+  <td>8081</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11043" target="_blank" rel="noopener">CVE-2019-11043</a></td>
+  <td>PHP FastCGI Process Manager (FPM) Buffer Underflow Vulnerability</td>
+  <td class="server">PHP 8.4.3</td>
+  <td><span class="badge" style="background:#b45309;color:#fff;">Review</span></td>
+  <td>—</td>
+  <td class="detail">2022-03-25</td>
+</tr><tr>
+  <td><a href="http://127.0.0.2:8082/" target="_blank" rel="noopener">127.0.0.2</a></td>
+  <td>8082</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11043" target="_blank" rel="noopener">CVE-2019-11043</a></td>
+  <td>PHP FastCGI Process Manager (FPM) Buffer Underflow Vulnerability</td>
+  <td class="server">PHP 8.3.10</td>
+  <td><span class="badge" style="background:#b45309;color:#fff;">Review</span></td>
+  <td>—</td>
+  <td class="detail">2022-03-25</td>
+</tr><tr>
+  <td><a href="http://127.0.0.3:8083/" target="_blank" rel="noopener">127.0.0.3</a></td>
+  <td>8083</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11043" target="_blank" rel="noopener">CVE-2019-11043</a></td>
+  <td>PHP FastCGI Process Manager (FPM) Buffer Underflow Vulnerability</td>
+  <td class="server">PHP 7.4.3</td>
+  <td><span class="badge" style="background:#b45309;color:#fff;">Review</span></td>
+  <td>—</td>
+  <td class="detail">2022-03-25</td>
+</tr><tr>
+  <td><a href="http://127.0.0.4:8084/login.php" target="_blank" rel="noopener">127.0.0.4</a></td>
+  <td>8084</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2012-1823" target="_blank" rel="noopener">CVE-2012-1823</a></td>
+  <td>PHP-CGI Query String Parameter Injection Vulnerability</td>
+  <td class="server">PHP</td>
+  <td><span class="badge" style="background:#b45309;color:#fff;">Review</span></td>
+  <td>Yes</td>
+  <td class="detail">2022-03-25</td>
+</tr><tr>
+  <td><a href="http://127.0.0.4:8084/login.php" target="_blank" rel="noopener">127.0.0.4</a></td>
+  <td>8084</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11043" target="_blank" rel="noopener">CVE-2019-11043</a></td>
+  <td>PHP FastCGI Process Manager (FPM) Buffer Underflow Vulnerability</td>
+  <td class="server">PHP</td>
+  <td><span class="badge" style="background:#b45309;color:#fff;">Review</span></td>
+  <td>—</td>
+  <td class="detail">2022-03-25</td>
+</tr><tr>
+  <td><a href="http://127.0.0.4:8084/login.php" target="_blank" rel="noopener">127.0.0.4</a></td>
+  <td>8084</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-4577" target="_blank" rel="noopener">CVE-2024-4577</a></td>
+  <td>PHP-CGI OS Command Injection Vulnerability</td>
+  <td class="server">PHP</td>
+  <td><span class="badge" style="background:#b45309;color:#fff;">Review</span></td>
+  <td>Yes</td>
+  <td class="detail">2024-06-12</td>
+</tr><tr>
+  <td><a href="https://127.0.0.6:8443/" target="_blank" rel="noopener">127.0.0.6</a></td>
+  <td>8443</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11043" target="_blank" rel="noopener">CVE-2019-11043</a></td>
+  <td>PHP FastCGI Process Manager (FPM) Buffer Underflow Vulnerability</td>
+  <td class="server">PHP 8.1.2</td>
+  <td><span class="badge" style="background:#b45309;color:#fff;">Review</span></td>
+  <td>—</td>
+  <td class="detail">2022-03-25</td>
+</tr><tr>
+  <td><a href="http://127.0.0.7:8087/" target="_blank" rel="noopener">127.0.0.7</a></td>
+  <td>8087</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2019-11043" target="_blank" rel="noopener">CVE-2019-11043</a></td>
+  <td>PHP FastCGI Process Manager (FPM) Buffer Underflow Vulnerability</td>
+  <td class="server">PHP 8.2.5</td>
+  <td><span class="badge" style="background:#b45309;color:#fff;">Review</span></td>
+  <td>—</td>
+  <td class="detail">2022-03-25</td>
+</tr><tr>
+  <td><a href="http://127.0.0.7:8087/" target="_blank" rel="noopener">127.0.0.7</a></td>
+  <td>8087</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-41773" target="_blank" rel="noopener">CVE-2021-41773</a></td>
+  <td>Apache HTTP Server Path Traversal Vulnerability</td>
+  <td class="server">Apache httpd</td>
+  <td><span class="badge" style="background:#b45309;color:#fff;">Review</span></td>
+  <td>—</td>
+  <td class="detail">2021-11-03</td>
+</tr><tr>
+  <td><a href="http://127.0.0.1:8081/" target="_blank" rel="noopener">127.0.0.1</a><div class="hn">localhost</div></td>
+  <td>8081</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2012-1823" target="_blank" rel="noopener">CVE-2012-1823</a></td>
+  <td>PHP-CGI Query String Parameter Injection Vulnerability</td>
+  <td class="server">PHP 8.4.3</td>
+  <td><span class="badge" style="background:#4b5563;color:#fff;">Likely patched</span></td>
+  <td>Yes</td>
+  <td class="detail">2022-03-25</td>
+</tr><tr>
+  <td><a href="http://127.0.0.1:8081/" target="_blank" rel="noopener">127.0.0.1</a><div class="hn">localhost</div></td>
+  <td>8081</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-41773" target="_blank" rel="noopener">CVE-2021-41773</a></td>
+  <td>Apache HTTP Server Path Traversal Vulnerability</td>
+  <td class="server">Apache httpd 2.4.58</td>
+  <td><span class="badge" style="background:#4b5563;color:#fff;">Likely patched</span></td>
+  <td>—</td>
+  <td class="detail">2021-11-03</td>
+</tr><tr>
+  <td><a href="http://127.0.0.1:8081/" target="_blank" rel="noopener">127.0.0.1</a><div class="hn">localhost</div></td>
+  <td>8081</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-4577" target="_blank" rel="noopener">CVE-2024-4577</a></td>
+  <td>PHP-CGI OS Command Injection Vulnerability</td>
+  <td class="server">PHP 8.4.3</td>
+  <td><span class="badge" style="background:#4b5563;color:#fff;">Likely patched</span></td>
+  <td>Yes</td>
+  <td class="detail">2024-06-12</td>
+</tr><tr>
+  <td><a href="http://127.0.0.2:8082/" target="_blank" rel="noopener">127.0.0.2</a></td>
+  <td>8082</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2012-1823" target="_blank" rel="noopener">CVE-2012-1823</a></td>
+  <td>PHP-CGI Query String Parameter Injection Vulnerability</td>
+  <td class="server">PHP 8.3.10</td>
+  <td><span class="badge" style="background:#4b5563;color:#fff;">Likely patched</span></td>
+  <td>Yes</td>
+  <td class="detail">2022-03-25</td>
+</tr><tr>
+  <td><a href="http://127.0.0.2:8082/" target="_blank" rel="noopener">127.0.0.2</a></td>
+  <td>8082</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2024-4577" target="_blank" rel="noopener">CVE-2024-4577</a></td>
+  <td>PHP-CGI OS Command Injection Vulnerability</td>
+  <td class="server">PHP 8.3.10</td>
+  <td><span class="badge" style="background:#4b5563;color:#fff;">Likely patched</span></td>
+  <td>Yes</td>
+  <td class="detail">2024-06-12</td>
+</tr><tr>
+  <td><a href="http://127.0.0.3:8083/" target="_blank" rel="noopener">127.0.0.3</a></td>
+  <td>8083</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2012-1823" target="_blank" rel="noopener">CVE-2012-1823</a></td>
+  <td>PHP-CGI Query String Parameter Injection Vulnerability</td>
+  <td class="server">PHP 7.4.3</td>
+  <td><span class="badge" style="background:#4b5563;color:#fff;">Likely patched</span></td>
+  <td>Yes</td>
+  <td class="detail">2022-03-25</td>
+</tr><tr>
+  <td><a href="http://127.0.0.3:8083/" target="_blank" rel="noopener">127.0.0.3</a></td>
+  <td>8083</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-41773" target="_blank" rel="noopener">CVE-2021-41773</a></td>
+  <td>Apache HTTP Server Path Traversal Vulnerability</td>
+  <td class="server">Apache httpd 2.4.29</td>
+  <td><span class="badge" style="background:#4b5563;color:#fff;">Likely patched</span></td>
+  <td>—</td>
+  <td class="detail">2021-11-03</td>
+</tr><tr>
+  <td><a href="https://127.0.0.6:8443/" target="_blank" rel="noopener">127.0.0.6</a></td>
+  <td>8443</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2012-1823" target="_blank" rel="noopener">CVE-2012-1823</a></td>
+  <td>PHP-CGI Query String Parameter Injection Vulnerability</td>
+  <td class="server">PHP 8.1.2</td>
+  <td><span class="badge" style="background:#4b5563;color:#fff;">Likely patched</span></td>
+  <td>Yes</td>
+  <td class="detail">2022-03-25</td>
+</tr><tr>
+  <td><a href="https://127.0.0.6:8443/" target="_blank" rel="noopener">127.0.0.6</a></td>
+  <td>8443</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-41773" target="_blank" rel="noopener">CVE-2021-41773</a></td>
+  <td>Apache HTTP Server Path Traversal Vulnerability</td>
+  <td class="server">Apache httpd 2.4.52</td>
+  <td><span class="badge" style="background:#4b5563;color:#fff;">Likely patched</span></td>
+  <td>—</td>
+  <td class="detail">2021-11-03</td>
+</tr><tr>
+  <td><a href="http://127.0.0.7:8087/" target="_blank" rel="noopener">127.0.0.7</a></td>
+  <td>8087</td>
+  <td><a href="https://nvd.nist.gov/vuln/detail/CVE-2012-1823" target="_blank" rel="noopener">CVE-2012-1823</a></td>
+  <td>PHP-CGI Query String Parameter Injection Vulnerability</td>
+  <td class="server">PHP 8.2.5</td>
+  <td><span class="badge" style="background:#4b5563;color:#fff;">Likely patched</span></td>
+  <td>Yes</td>
+  <td class="detail">2022-03-25</td>
+</tr></tbody></table>
+
+  <p class="note">PHP lifecycle dates are from php.net's supported-versions
+  schedule. "End of life" means the branch no longer receives security fixes
+  and should be prioritized for upgrade. Version detection relies on headers
+  the server chooses to disclose; a server that hides its version can still be
+  running an outdated PHP, so absence of a version is not evidence of safety. KEV correlation matches CISA's known-exploited catalog by product/vendor; "Likely affected/patched" is a best-effort guess from any version stated in the CVE description and must be confirmed against each host's actual patch level. "Review" means the CVE applies to the product but the version could not be compared.</p>
+</main>
+<footer>
+  phpscan v1.1.0 &middot; authorized internal inventory use only.
+</footer>
+</body>
+</html>
